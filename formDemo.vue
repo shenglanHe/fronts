@@ -48,21 +48,11 @@
     <div v-for="(formdata, index) in pageData" :key="formdata.pageId">
       <h3><span>{{formdata.pageName}}</span></h3>
       <Form ref="formdata" :model="formdata" :label-width="120">
-        <Row class="sortList desktop">
-          <Col v-for="(item,index) in formdata.details" :key="index" :span="24/item.col" class="columnstyle1" :data-index="index">
+        <Row>
+          <Col v-for="(item,index) in formdata.details" :key="index" :span="24/item.col" class="columnstyle1">
             <template v-if="item.type === 'input'">
                 <Form-item :label="item.name" :prop="item.value" :rules="{required: true,message:'not empty',trigger:'blur'}">
-                    <i-input :readonly="item.readOnly==='1'?true:false" v-model="item.value" :placeholder="item.placeholder" ></i-input>
-                </Form-item>
-            </template>
-            <template v-if="item.type === 'inputRead'">
-                <Form-item :label="item.name" :prop="item.value" class="idCard" >
-                    <i-input :readonly="item.readOnly==='1'?true:false" v-model="item.value" :placeholder="item.placeholder"><span slot="append">读取</span></i-input>
-                </Form-item>
-            </template>
-            <template v-if="item.type === 'textarea'">
-                <Form-item :label="item.name" :prop="item.value" >
-                    <i-input :readonly="item.readOnly==='1'?true:false" v-model="item.value" :placeholder="item.placeholder" type="textarea" :autosize="{minRows: 2,maxRows: 5}"></i-input>
+                    <i-input v-model="item.value" :placeholder="item.placeholder" ></i-input>
                 </Form-item>
             </template>
         </Col>
@@ -99,53 +89,20 @@
                                 "placeholder": "请获取信息",
                                 "text": "id_num",
                                 "value": ""
-                            },
-                            {
-                                "col": "2",
-                                "readOnly": "0",
-                                "type": "input",
-                                "required": "1",
-                                "regex": null,
-                                "name": "姓名",
-                                "placeholder": "请输入姓名",
-                                "text": "name",
-                                "value": ""
                             }],
                     "pageId": 14,
                     "pageName": "基本表单1"
                 },{
                     "details": [
                             {
-                                "col": "1",
-                                "readOnly": "0",
-                                "type": "input",
-                                "required": "0",
-                                "regex": null,
-                                "name": "所属社区",
-                                "placeholder": "请获取信息",
-                                "text": "community",
-                                "value": ""
-                            },
-                            {
-                                "col": "2",
-                                "readOnly": "0",
-                                "type": "input",
-                                "required": "1",
-                                "regex": null,
-                                "name": "身份证号",
-                                "placeholder": "请获取信息",
-                                "text": "id_num",
-                                "value": ""
-                            },
-                            {
                                 "col": "2",
                                 "readOnly": "0",
                                 "type": "input",
                                 "required": "1",
                                 "regex": null,
                                 "name": "姓名",
-                                "placeholder": "请输入姓名",
-                                "text": "name",
+                                "placeholder": "请获取信息",
+                                "text": "id_num",
                                 "value": ""
                             }],
                     "pageId": 15,
